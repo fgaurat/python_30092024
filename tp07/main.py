@@ -1,6 +1,14 @@
 import traceback
 
+class DivBy12Error(ArithmeticError):
+
+    def __init__(self) -> None:
+        super().__init__("Division par 12 !!")
+
 def divi(a,b):
+    if b==12:
+        # raise Exception('Hooooo!')
+        raise DivBy12Error()
     return a/b
 
 def call_divi(a,b):
@@ -16,10 +24,12 @@ def main():
     try:
         a=2
         # b=int(input('b:'))
-        b=0
+        b=12
         # c = a/b
         c = call_divi(a,b)
         print(c)
+    except DivBy12Error as e:
+        print("DivBy12Error",e)
     except ZeroDivisionError as e:
         print("ZeroDivisionError",e)
     except TypeError as e:
