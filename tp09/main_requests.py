@@ -2,6 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 from pprint import pprint
 def main():
+    # sauvegarde des dépendances
+    # pip freeze > requirements.txt
+    
+    # installation des dépendances
+    # pip install -r requirements.txt
+    
     url = r"https://logs.eolem.com/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
